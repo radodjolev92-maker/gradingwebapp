@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Бележник за оценки</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <h1>Бележник за оценки</h1>
+  <div class="controls">
+    <button id="toggleTheme">Тъмен режим</button>
+    <button id="exportBtn">Експорт(.json)</button>
+    <button id="importBtn">Импорт</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" />
+  </div>
+</header>
+<main>
+  <section class="left">
+    <div class="card">
+      <h2>Предмети</h2>
+      <ul id="subjectsList"></ul>
+      <div class="form-row">
+        <input id="subjectName" placeholder="Име на предмет" />
+        <input id="subjectColor" type="color" value="#4caf50" />
+        <button id="addSubject">Добави</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Добави оценка</h2>
+      <select id="selSubject"></select>
+      <div class="form-row">
+        <input id="gradeValue" placeholder="Оценка (например 5.50)" />
+        <input id="gradeDate" type="date" />
+      </div>
+      <select id="gradeType">
+        <option value="Контролно">Контролно</option>
+        <option value="Тест">Тест</option>
+        <option value="Устно">Устно</option>
+        <option value="Домашно">Домашно</option>
+      </select>
+      <div class="form-row">
+        <input id="gradeComment" placeholder="Коментар (по желание)" />
+        <button id="addGrade">Добави оценка</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="right">
+    <div class="card">
+      <h2>Оценки</h2>
+      <table id="gradesTable">
+        <thead><tr><th>Предмет</th><th>Оценка</th><th>Дата</th><th>Тип</th><th>Коментар</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Статистика</h2>
+      <div id="stats"></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>Локално съхранение в браузъра. Можеш да експортираш/импортираш данни.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
